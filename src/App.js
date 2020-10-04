@@ -25,22 +25,20 @@ function App() {
           Edit Done  <code>src/App.js</code> and save to reload.
         </p>
         <p className="style">Getting Started wth REACT</p>
-        <p>Feeling Excited</p>
-        <h1 style={{color: 'yellow',
-        backgroundColor: 'hotpink'}}>Intisar Mahee</h1>
-        <h2>My Birth Year {1900+95}</h2>
-  <h1>my heading: {person1.name + " " + person2.job}</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Person name="Munna" job="footballer"></Person>
       </header>
     </div>
   );
+}
+
+function Person(Props){
+  return (
+    <div style={{border: '2px solid yellow'}}>
+      <h3>My Name is {Props.name}}</h3>
+  <p>My Profession: {Props.job}</p>
+    </div>
+  )
+  
 }
 
 export default App;
