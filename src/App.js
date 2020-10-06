@@ -3,20 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  var person1 = {
-    name: "Dr. Mahfuz",
-    job: "Singer"
-    }
-
-    var person2 = {
-      name: "Eva",
-      job: "Stupid"
-      }
-
-      var style={
-        color: 'yellow',
-        backgroundColor: 'red'
-      }
+      const products = [
+        {name:'Photoshop', price:'$99'},
+        {name:'Lightroom', price:'$90'},
+        {name:'epub-reader', price:'$9'}
+      ]
   return (
     <div className="App">
       <header className="App-header">
@@ -25,20 +16,37 @@ function App() {
           Edit Done  <code>src/App.js</code> and save to reload.
         </p>
         <p className="style">Getting Started wth REACT</p>
-        <Person name="Munna" job="footballer"></Person>
+        <Product product={products[0]}></Product>
+        <Product product={products[1]}></Product>
+        <Product product={products[2]}></Product>
       </header>
     </div>
   );
 }
 
-function Person(Props){
-  return (
-    <div style={{border: '2px solid yellow'}}>
-      <h3>My Name is {Props.name}}</h3>
-  <p>My Profession: {Props.job}</p>
+function Product(props){
+  const productStyle={
+    border: '1px solid gray',
+    borderRadius: '5px',
+    backgroundColor: 'yellow',
+    height: '350px',
+    width: '350px',
+    float: 'left',
+    color: 'black'
+  }
+
+  const {name, price} = props.product;
+  return(
+    <div style={productStyle}>
+      <h2>
+      {name}
+      </h2>
+      <h3>{price}</h3>
+      
+      <button>Buy Now</button>
     </div>
   )
-  
 }
+
 
 export default App;
