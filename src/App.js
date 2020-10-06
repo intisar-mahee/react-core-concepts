@@ -3,11 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const nayoks = ['Alamgir', 'Bulbul', 'Salman', 'Jafor']
       const products = [
         {name:'Photoshop', price:'$99'},
         {name:'Lightroom', price:'$90'},
         {name:'epub-reader', price:'$9'}
       ]
+    
+     const nayokNames = nayoks.map(nayok=>nayok);
+     
   return (
     <div className="App">
       <header className="App-header">
@@ -16,9 +20,15 @@ function App() {
           Edit Done  <code>src/App.js</code> and save to reload.
         </p>
         <p className="style">Getting Started wth REACT</p>
-        <Product product={products[0]}></Product>
-        <Product product={products[1]}></Product>
-        <Product product={products[2]}></Product>
+        <ul>
+          {nayoks.map(nayok => <li>{nayok}</li>)}
+          
+
+          {products.map(product => <li>{product.name}</li>)}
+
+          {products.map(product => <Product product={product}></Product>)}
+          
+        </ul>
       </header>
     </div>
   );
