@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
   const nayoks = ['Alamgir', 'Bulbul', 'Salman', 'Jafor']
@@ -21,6 +22,7 @@ function App() {
         </p>
         <p className="style">Getting Started wth REACT</p>
         <Counter></Counter>
+        <Users></Users>
         <ul>
           {nayoks.map(nayok => <li>{nayok}</li>)}
           
@@ -48,6 +50,24 @@ function Counter(){
   )
 }
 
+function Users(){
+  const [users, setUsers]= useState([]);
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res=>res.json())
+    .then(data=>setUsers(data))
+  })
+  return(
+    <div>
+      <h3>Dynamic Users:{users.length}</h3>
+      <ul>
+        {
+          users.map(user=> <li>{user.email}</li>)
+        }
+      </ul>
+    </div>
+  )
+}
 function Product(props){
   const productStyle={
     border: '1px solid gray',
