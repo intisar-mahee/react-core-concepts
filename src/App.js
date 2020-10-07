@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +20,7 @@ function App() {
           Edit Done  <code>src/App.js</code> and save to reload.
         </p>
         <p className="style">Getting Started wth REACT</p>
+        <Counter></Counter>
         <ul>
           {nayoks.map(nayok => <li>{nayok}</li>)}
           
@@ -32,6 +33,15 @@ function App() {
       </header>
     </div>
   );
+}
+
+function Counter(){
+  const[count, setCount] = useState(20);
+  return(
+    <div>
+      <h1>Count: {count}</h1>
+    </div>
+  )
 }
 
 function Product(props){
